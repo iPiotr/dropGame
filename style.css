@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.box-container {
+  background: #ccc;
+  padding: 1em;
+  width: max-content;
+  border-radius: 3em;
+  margin: 0.5em auto;
+}
+
+.box {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+  transition: transform 0.15s ease;
+  border-radius: 50%;
+  padding-top: 0.3em;
+  cursor: pointer;
+}
+
+.box.correct {
+  background: #05a100;
+}
+
+.box.incorrect {
+  background: #d80303;
+}
+
+.box:active {
+    box-shadow: 10px 20px 30px rgba(0,0,0,0.5);
+  transform: scale(1.5);
+}
+
+.droparea {
+  background: #dbd7d7;
+  width: 300px;
+  height: 150px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 3em;
+}
+
+.drop {
+    width: max-content;
+    margin: 0 auto;
+}
+
+.score-container {
+  border: 2px solid #000;
+  border-radius: 2em;
+  font-size: 1.5em;
+  padding: 0.5em;
+  width: max-content;
+  margin: 0.3em auto;
+}
+
+#mess {
+    width: max-content;
+    margin: 0 auto;
+    font-size: 2em;
+}
+#reset {
+    width: max-content;
+    padding: 0.2em;
+    border: 2px solid #000;
+    background: #364dd1;
+    color: #ffffff;
+    margin: 0.3em auto;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 1em;
+}
