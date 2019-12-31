@@ -16,11 +16,15 @@ $(document).ready(function () {
     // make doparea droppable
     $('.droparea').droppable({
         accept: '.box',
-        drop: handleBoxDrop
+        drop: BoxDrop
+    });
+
+    $(".drop .box").draggable({
+        containment: ".drop"
     });
 
     // function that handles the box being droppped
-    function handleBoxDrop(event, ui) {
+    function BoxDrop(event, ui) {
 
         const box = ui.draggable;
         const boxType = box.attr('type');
@@ -60,6 +64,10 @@ $(document).ready(function () {
             $('#mess').text("Game End");
             $('#reset').show();
         }
+
+        
+        
     }
+    
 
 });

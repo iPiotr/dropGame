@@ -9,34 +9,36 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body onselectstart="return false;">
-
+<body>
+                <!-- Score -->
     <div class="score-container">
         Score: <span id="score">0</span>
     </div>
-
+                <!-- Drop area & boxes -->
     <div class="drop">
+                <!-- T droparea -->
         <div class="droparea" area_type="true">
-            <h3>Drop <u>T</u> letters here</h3>
+            <h3><u>T</u> Drop area</h3>
         </div>
-    
+                <!-- F droparea -->
         <div class="droparea" area_type="false">
-            <h3>Drop <u>F</u> letters here</h3>
+            <h3><u>F</u> Drop area</h3>
         </div>
     
+    
+                <!-- Boxes -->
+        <div class="box-container">
+
+            <div class="box" type="true">T</div>
+            <div class="box" type="false">F</div>
+            <div class="box" type="false">F</div>
+            <div class="box" type="true">T</div>
+            <div class="box" type="false">F</div>
+            <div class="box" type="true">T</div>
+
+        </div>
     </div>
-
-    <div class="box-container">
-
-        <div class="box" type="true">T</div>
-        <div class="box" type="false">F</div>
-        <div class="box" type="false">F</div>
-        <div class="box" type="true">T</div>
-        <div class="box" type="false">F</div>
-        <div class="box" type="true">T</div>
-
-    </div>
-
+                <!-- End messages -->
     <div id="mess"></div>
     <div id="reset">Reset</div>
 
