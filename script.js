@@ -6,7 +6,8 @@ $(document).ready(function () {
 
     // hide end game message and reset button
     $('#mess').hide();
-    $('#reset').hide();
+    $('#button').hide();
+    $('.questions').hide();
 
     // make boxes draggable
     $('.box').draggable({
@@ -19,8 +20,8 @@ $(document).ready(function () {
         drop: BoxDrop
     });
 
-    $(".drop .box").draggable({
-        containment: ".drop"
+    $(".box").draggable({
+        containment: ".balls"
     });
 
     // function that handles the box being droppped
@@ -35,13 +36,19 @@ $(document).ready(function () {
         if (boxType == dropAreaType) {
             // num type matches!
             box.addClass('correct');
+            box.addClass('dropped');
             score++;
+            
         } else {
             // num type does NOT match!
             box.addClass('incorrect');
+            box.addClass('dropped');
         }
 
+        
+
         // disable dragging
+        // box.position({ of: $(this), my: 'center', at: 'center' });
         box.draggable('disable').draggable('option', 'revert', false);
         BoxesDropped++;
 
@@ -49,25 +56,29 @@ $(document).ready(function () {
         $('#score').text(score);
 
         // check if game has ended
-        $('#reset').click(function () {
-            location.reload();
-        });
-
         if (BoxesDropped == Boxes && BoxesDropped == score) {
             $('#mess').show();
             $('#mess').text("Good job");
             $('#mess').css("color", "green");
-            $('#reset').show();
+            
+            $('#button').show();
+            $('#button').text("Next");
+            $('#button').click(function () {
+                $('.balls').hide();
+                $('#mess').hide();
+                $('#button').hide();
+                $('.questions').show();
+            });
         }
         if (BoxesDropped == Boxes && Boxes != score) {
             $('#mess').show();
-            $('#mess').text("Game End");
-            $('#reset').show();
+            $('#mess').text("Try again");
+
+            $('#button').show();
+            $('#button').text("Reset");
+            $('#button').click(function () {
+                location.reload();
+            });
         }
-
-        
-        
     }
-    
-
 });

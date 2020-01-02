@@ -7,40 +7,49 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Drop game</title>
 </head>
 <body>
-                <!-- Score -->
-    <div class="score-container">
-        Score: <span id="score">0</span>
-    </div>
-                <!-- Drop area & boxes -->
-    <div class="drop">
-                <!-- T droparea -->
-        <div class="droparea" area_type="true">
-            <h3><u>T</u> Drop area</h3>
+    <header>
+
+        <!-- Balls -->
+    <div class="balls center">
+
+        <div class="score-container">
+            <!-- Score: <span id="score">0</span> -->
         </div>
-                <!-- F droparea -->
-        <div class="droparea" area_type="false">
-            <h3><u>F</u> Drop area</h3>
+                <!--orange droparea -->
+        <div class="droparea" area_type="orange">
+            <h3><u>Orange</u> balls</h3>
         </div>
-    
-    
+                <!-- blue droparea -->
+        <div class="droparea" area_type="blue">
+            <h3><u>Blue</u> balls</h3>
+        </div>
                 <!-- Boxes -->
         <div class="box-container">
-
-            <div class="box" type="true">T</div>
-            <div class="box" type="false">F</div>
-            <div class="box" type="false">F</div>
-            <div class="box" type="true">T</div>
-            <div class="box" type="false">F</div>
-            <div class="box" type="true">T</div>
-
+            <div class="box orange" type="orange"></div>
+            <div class="box orange" type="orange"></div>
+            <div class="box blue" type="blue"></div>
+            <div class="box orange" type="orange"></div>
+            <div class="box blue" type="blue"></div>
+            <div class="box blue" type="blue"></div>
+            <div class="box orange" type="orange"></div>
         </div>
     </div>
+
+    <div class="questions center">
+    
+        sdsdsddsdsdsdsdsdsdsdsds
+    
+    </div>
+
                 <!-- End messages -->
     <div id="mess"></div>
-    <div id="reset">Reset</div>
+    <div id="button"></div>
+    </header>
+
+    
 
     <script src="script.js"></script>
 </body>
