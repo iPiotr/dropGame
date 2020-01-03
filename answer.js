@@ -1,83 +1,76 @@
 $(document).ready(function () {
 
     let score = 0;
-    let BoxesDropped = 0;
-    const Boxes = $('.box').length;
+    let AnswersDropped = 0;
+    const Answers = $('.answer').length;
 
     // hide end game message and reset button
-    $('#mess').hide();
-    $('#button').hide();
-    $('.quest').hide();
 
-    // make boxes draggable
-    $('.box, .answer').draggable({
+    // make Answers draggable
+    $('.answer').draggable({
         revert: true
     });
 
     // make doparea droppable
-    $('.droparea').droppable({
-        accept: '.box',
-        drop: BoxDrop
-    });
-
     $('.answers').droppable({
         accept: '.answer',
-        drop: BoxDrop
+        drop: AnswerDrop
     });
 
 
-    $(".box, .answer").draggable({
+    $(".answer").draggable({
         containment: ".content"
     });
 
-    // function that handles the box being droppped
-    function BoxDrop(event, ui) {
+    // function that handles the answer being droppped
+    function AnswerDrop(event, ui) {
 
-        const box = ui.draggable;
-        const boxType = box.attr('type');
+        const answer = ui.draggable;
+        const answerType = answer.attr('type');
         const dropArea = $(this);
         const dropAreaType = dropArea.attr('area_type');
 
-        // Check if box number type matches number type of drop area
-        if (boxType == dropAreaType) {
+        // Check if answer number type matches number type of drop area
+        if (answerType == dropAreaType) {
             // num type matches!
-            box.addClass('correct');
-            box.addClass('dropped');
+            answer.addClass('correct');
+            answer.addClass('dropped');
             score++;
-            
+
         } else {
             // num type does NOT match!
-            box.addClass('incorrect');
-            box.addClass('dropped');
+            answer.addClass('incorrect');
+            answer.addClass('dropped');
         }
 
-        
+
 
         // disable dragging
-        box.draggable('disable').draggable('option', 'revert', false);
-        BoxesDropped++;
+        answer.position({ of: $(this), my: 'center', at: 'center' });
+        answer.draggable('disable').draggable('option', 'revert', false);
+        AnswersDropped++;
 
         // output score
         $('#score').text(score);
 
         // check if game has ended
-        if (BoxesDropped == Boxes && BoxesDropped == score) {
+        if (AnswersDropped == Answers && AnswersDropped == score) {
             $('#mess').show();
             $('#mess').text("Good job");
             $('#mess').css("color", "green");
-            
+
             $('#button').show();
             $('#button').text("Next");
             $('#button').click(function () {
-                $('.balls').hide();
+                $('.quest').hide();
                 $('#button').hide();
-                $('.quest').show();
+                // $('.quest').show();
                 score = 0;
                 $('#score').text(score);
             });
 
         }
-        if (BoxesDropped == Boxes && Boxes != score) {
+        if (AnswersDropped == Answers && Answers != score) {
             $('#mess').show();
             $('#mess').text("Try again");
 
@@ -88,10 +81,13 @@ $(document).ready(function () {
             });
         }
 
+        console.log(AnswersDropped);
+        console.log(Answers);
+        
     }
 
     // answer
 
-    
-    
+
+
 });

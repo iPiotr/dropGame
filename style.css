@@ -10,6 +10,11 @@ body, html {
 	font-family: Poppins-Regular, sans-serif;
 }
 
+h3 {
+  line-height: 150px;
+  opacity: .5;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -26,9 +31,8 @@ body, html {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 960px;
+  width: 1200px;
   background: #fff;
-
   padding: 60px 160px 60px 160px;
   border-radius: 10px; 
   border-top-right-radius: 20vh;
@@ -49,7 +53,6 @@ body, html {
   width: max-content;
   margin: 40px auto;
   border-radius: 10px;
-  border: 1px solid #494949;
 }
 
 .box {
@@ -57,9 +60,6 @@ body, html {
   width: 40px;
   height: 40px;
   margin: 3px;
-  color: #fff;
-  font-size: 2em;
-  text-align: center;
   transition: transform 0.15s ease;
   border-radius: 50%;
   cursor: pointer;
@@ -74,7 +74,7 @@ body, html {
 }
 
 .box.incorrect {
-  border: 2px solid red;
+  border: 2px solid #ff0000;
 }
 
 
@@ -104,6 +104,56 @@ body, html {
   text-align: center;
   line-height: 50px;
 }
-.dropped { 
- 
+
+.answers {
+  background: #e4e2e2;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.quest {
+  width: 100%;
+}
+
+.question {
+  line-height: 50px;
+  margin-left: 60px;
+}
+
+.answer-container {
+  background: #a3a1a1;
+  padding: 1em;
+  width: max-content;
+  margin: 40px auto;
+  border-radius: 10px;
+}
+
+.answer {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+  padding: 1em;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.15s ease;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #bbbbbb;
+}
+
+.answer.correct {
+  background: #248000;
+}
+
+.answer.incorrect {
+  background: #d80000;
+}
+
+.dropped {
+
 }
