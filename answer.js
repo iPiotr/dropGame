@@ -7,6 +7,7 @@ $(document).ready(function () {
     // hide end game message and reset button
 
     // make Answers draggable
+
     $('.answer').draggable({
         revert: true
     });
@@ -55,12 +56,8 @@ $(document).ready(function () {
 
         // check if game has ended
         if (AnswersDropped == Answers && AnswersDropped == score) {
-            $('#mess').show();
-            $('#mess').text("Good job");
-            $('#mess').css("color", "green");
 
-            $('#button').show();
-            $('#button').text("Next");
+            $('#check').text("Next");
             $('#button').click(function () {
                 $('.quest').hide();
                 $('#button').hide();
@@ -71,10 +68,7 @@ $(document).ready(function () {
 
         }
         if (AnswersDropped == Answers && Answers != score) {
-            $('#mess').show();
-            $('#mess').text("Try again");
 
-            $('#button').show();
             $('#button').text("Reset");
             $('#button').click(function () {
                 location.reload();

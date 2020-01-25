@@ -41,7 +41,7 @@ h3 {
 
 .droparea {
   background: #e4e2e2;
-  width: 300px;
+  width: 350px;
   height: 150px;
   text-align: center;
   border-radius: 10px;
@@ -73,8 +73,11 @@ h3 {
   background: #0077ff;
 }
 
-.box.incorrect {
-  border: 2px solid #ff0000;
+.incorrect {
+  border: 3px solid #ff0000;
+}
+.correct {
+  border: 3px solid #09ff00;
 }
 
 
@@ -82,7 +85,10 @@ h3 {
     box-shadow: 10px 20px 30px rgba(0,0,0,0.5);
 }
 #mess {
-    width: max-content;
+  background: #01010101;
+    width: 100px;
+    height: 20px;
+    margin: 0 auto;
     font-size: 2em;
 }
 
@@ -92,7 +98,7 @@ h3 {
   margin: 0 auto;
 }
 
-#button {
+#check {
   background: #6b6b6b;
   margin: 0 auto;
   width: 100px;

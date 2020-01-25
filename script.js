@@ -1,16 +1,14 @@
-$(document).ready(function () {
+window.onload = function () {
 
     let score = 0;
     let BoxesDropped = 0;
     const Boxes = $('.box').length;
 
     // hide end game message and reset button
-    $('#mess').hide();
-    $('#button').hide();
     $('.quest').hide();
 
     // make boxes draggable
-    $('.box, .answer').draggable({
+    $('.box').draggable({
         revert: true
     });
 
@@ -20,13 +18,8 @@ $(document).ready(function () {
         drop: BoxDrop
     });
 
-    $('.answers').droppable({
-        accept: '.answer',
-        drop: BoxDrop
-    });
-
-
-    $(".box, .answer").draggable({
+    // make limit portability
+    $(".box").draggable({
         containment: ".content"
     });
 
@@ -41,13 +34,11 @@ $(document).ready(function () {
         // Check if box number type matches number type of drop area
         if (boxType == dropAreaType) {
             // num type matches!
-            box.addClass('correct');
             box.addClass('dropped');
             score++;
             
         } else {
             // num type does NOT match!
-            box.addClass('incorrect');
             box.addClass('dropped');
         }
 
@@ -61,37 +52,40 @@ $(document).ready(function () {
         $('#score').text(score);
 
         // check if game has ended
+        
+
+        }
+
+    // answer
+    
+
+    document.getElementById("check").onclick = function fun() {
+
         if (BoxesDropped == Boxes && BoxesDropped == score) {
-            $('#mess').show();
-            $('#mess').text("Good job");
-            $('#mess').css("color", "green");
             
-            $('#button').show();
-            $('#button').text("Next");
-            $('#button').click(function () {
+            $('.content').addClass('correct');
+
+            $('#mess').text("Next");
+            $('#check').text("Next");
+            $('#check').click(function () {
                 $('.balls').hide();
-                $('#button').hide();
                 $('.quest').show();
                 score = 0;
                 $('#score').text(score);
             });
 
-        }
-        if (BoxesDropped == Boxes && Boxes != score) {
-            $('#mess').show();
-            $('#mess').text("Try again");
+        
+    }
 
-            $('#button').show();
-            $('#button').text("Reset");
-            $('#button').click(function () {
+        if (BoxesDropped == Boxes && Boxes != score) {
+            
+            $('.content').addClass('incorrect');
+
+            $('#check').text("Reset");
+            $('#check').click(function () {
                 location.reload();
             });
         }
+}
 
-    }
-
-    // answer
-
-    
-    
-});
+}
