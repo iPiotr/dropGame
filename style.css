@@ -33,7 +33,7 @@ h3 {
   justify-content: space-between;
   width: 1200px;
   background: #fff;
-  padding: 60px 160px 60px 160px;
+  padding: 40px 160px 60px 160px;
   border-radius: 10px; 
   border-top-right-radius: 20vh;
   border-bottom-left-radius: 20vh;
@@ -51,7 +51,7 @@ h3 {
   background: #a3a1a1;
   padding: 1em;
   width: max-content;
-  margin: 40px auto;
+  margin: 30px auto 10px auto;
   border-radius: 10px;
 }
 
@@ -63,6 +63,7 @@ h3 {
   transition: transform 0.15s ease;
   border-radius: 50%;
   cursor: pointer;
+  border: 1px solid #000000;
 }
 
 .box.orange {
@@ -74,10 +75,10 @@ h3 {
 }
 
 .incorrect {
-  border: 3px solid #ff0000;
+  color: #ff0000;
 }
 .correct {
-  border: 3px solid #09ff00;
+  color: #0bb405;
 }
 
 
@@ -86,10 +87,10 @@ h3 {
 }
 #mess {
   background: #01010101;
-    width: 100px;
-    height: 20px;
-    margin: 0 auto;
-    font-size: 2em;
+    width: max-content;
+    height: 30px;
+    margin: 0 auto 10px;
+    font-size: 1.5em;
 }
 
 .btn-center {

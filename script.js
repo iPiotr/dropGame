@@ -4,7 +4,7 @@ window.onload = function () {
     let BoxesDropped = 0;
     const Boxes = $('.box').length;
 
-    // hide end game message and reset button
+    // hide next step
     $('.quest').hide();
 
     // make boxes draggable
@@ -19,8 +19,8 @@ window.onload = function () {
     });
 
     // make limit portability
-    $(".box").draggable({
-        containment: ".content"
+    $('.box').draggable({
+        containment: '.content'
     });
 
     // function that handles the box being droppped
@@ -50,41 +50,36 @@ window.onload = function () {
 
         // output score
         $('#score').text(score);
-
-        // check if game has ended
-        
-
-        }
-
-    // answer
+    }
     
-
-    document.getElementById("check").onclick = function fun() {
+    // check if game has ended
+    document.querySelector('#check').onclick = function () {
 
         if (BoxesDropped == Boxes && BoxesDropped == score) {
             
-            $('.content').addClass('correct');
-
-            $('#mess').text("Next");
+            $('#mess').addClass('correct');
+            $('#mess').text("Good job");
             $('#check').text("Next");
             $('#check').click(function () {
                 $('.balls').hide();
                 $('.quest').show();
                 score = 0;
                 $('#score').text(score);
-            });
+            });    
+        }
 
-        
-    }
-
-        if (BoxesDropped == Boxes && Boxes != score) {
+        else if (BoxesDropped == Boxes && Boxes != score) {
             
-            $('.content').addClass('incorrect');
-
+            $('#mess').addClass('incorrect');
+            $('#mess').text("Try again");
             $('#check').text("Reset");
             $('#check').click(function () {
                 location.reload();
             });
+        } 
+        
+        else if (BoxesDropped != Boxes) {
+            $('#mess').text("Unfold all the balls");
         }
 }
 
