@@ -4,11 +4,15 @@ window.onload = function () {
     let BoxesDropped = 0;
     const Boxes = $('.box').length;
 
+    let AnswersDropped = 0;
+    const Answers = $('.answer').length;
+
     // hide next step
     $('.quest').hide();
+    $('#check2').hide();
 
     // make boxes draggable
-    $('.box').draggable({
+    $('.box, .answer').draggable({
         revert: true
     });
 
@@ -18,8 +22,13 @@ window.onload = function () {
         drop: BoxDrop
     });
 
+    $('.answers').droppable({
+        accept: '.answer',
+        drop: AnswerDrop
+    });
+
     // make limit portability
-    $('.box').draggable({
+    $('.box, .answer').draggable({
         containment: '.content'
     });
 
@@ -47,9 +56,29 @@ window.onload = function () {
         // disable dragging
         box.draggable('disable').draggable('option', 'revert', false);
         BoxesDropped++;
+    }
 
-        // output score
-        $('#score').text(score);
+    // function that handles the answer being droppped
+    function AnswerDrop(event, ui) {
+
+        const answer = ui.draggable;
+        const answerType = answer.attr('type');
+        const dropArea = $(this);
+        const dropAreaType = dropArea.attr('area_type');
+
+        // Check if answer number type matches number type of drop area
+        if (answerType == dropAreaType) {
+            // num type matches!
+            score++;
+
+        }
+
+
+
+        // disable dragging
+        answer.position({ of: $(this), my: 'center', at: 'center' });
+        answer.draggable('disable').draggable('option', 'revert', false);
+        AnswersDropped++;
     }
     
     // check if game has ended
@@ -63,8 +92,12 @@ window.onload = function () {
             $('#check').click(function () {
                 $('.balls').hide();
                 $('.quest').show();
+
+                $('#mess').removeClass('correct');
+                $('#mess').text("");
+                $('#check').hide();
+                $('#check2').show();
                 score = 0;
-                $('#score').text(score);
             });    
         }
 
@@ -78,9 +111,37 @@ window.onload = function () {
             });
         } 
         
-        else if (BoxesDropped != Boxes) {
+        else if (BoxesDropped != Boxes || AnswersDropped != Answers) {
             $('#mess').text("Unfold all the balls");
         }
 }
 
+        document.querySelector('#check2').onclick = function () {
+
+            if (AnswersDropped == Answers && AnswersDropped == score) {
+                $('.answer').addClass('correct');
+
+                $('#mess').addClass('correct');
+                $('#mess').text("Good job");
+                $('#check2').text("Next");
+                answer.addClass('correct');
+                $('#check2').click(function () {
+                    location.reload();
+                    score = 0;
+                });
+            }
+
+            else if (AnswersDropped == Answers && AnswersDropped != score) {
+
+                $('#mess').addClass('incorrect');
+                $('#mess').text("Try again");
+                $('#check2').text("Reset");
+                $('#check2').click(function () {
+                    location.reload();
+                });
+            }
+            else if (AnswersDropped != Answers) {
+                $('#mess').text("Unfold all the balls");
+            }
+        }
 }
